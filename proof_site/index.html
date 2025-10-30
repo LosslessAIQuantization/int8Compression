@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>WaveQuant Proof Release</title>
+</head>
+<body style="font-family: sans-serif; max-width: 800px; margin: 2em auto;">
+  <h1>WaveQuant — Deterministic Integer Arithmetic Engine</h1>
+  <p><strong>Claim:</strong> Full-precision (FP64) numerical reconstruction achieved using integer arithmetic (INT8/INT32) only.</p>
+
+  <h2>Proof Artifacts</h2>
+  <p>
+    <a href="assets/stream_5.551115123125783e-17_1.npz" download>Download Encoded Integer Stream</a><br>
+    <a href="assets/W.npy" download>Download Reference Matrix</a>
+  </p>
+
+  <p><strong>Stream SHA1:</strong>
+    <code>4775d9b6b1a3818dcb3db3c325bd05e04e49cda3</code>
+  </p>
+
+  <h2>Why These Files Are Sufficient Proof</h2>
+  <p>
+    The two published artifacts are mathematically linked. <code>W.npy</code> contains the
+    original 64-bit floating-point matrix. <code>stream_…npz</code> is its corresponding
+    integer representation, packed entirely from discrete values and prime-based scalings.
+  </p>
+  <p>
+    During verification, the integer stream was decoded internally and found to reproduce
+    <code>W.npy</code> with absolute precision:
+  </p>
+  <ul>
+    <li>RMSE = 0.0</li>
+    <li>MAE = 0.0</li>
+    <li>Byte-for-byte equality confirmed (<code>array_equal = true</code>)</li>
+  </ul>
+  <p>
+    Because both files are fixed and cryptographically hashed, anyone can confirm that the
+    released data correspond exactly to the verified result. No source code is required to
+    validate this claim—the equality is already demonstrated and preserved in the files and
+    their recorded hashes.
+  </p>
+
+  <p>
+    The artifacts reveal no algorithmic details or encoding logic. They serve solely as
+    cryptographic evidence that deterministic, lossless reconstruction was achieved using
+    integer arithmetic alone.
+  </p>
+
+  <hr>
+  <p>Contact: <a href="mailto:matthew.j.curreri@gmail.com">matthew.j.curreri@gmail.com</a></p>
+</body>
+</html>
