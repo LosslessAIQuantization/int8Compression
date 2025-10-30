@@ -53,4 +53,4 @@ It is provided for documentation only and does **not** expose any encoding logic
 ---
 
 **Contact:**  
-matthew.j.curreri@gmail.com
+matt@lossless-ai.net
